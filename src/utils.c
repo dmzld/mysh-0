@@ -28,10 +28,10 @@ void mysh_parse_command(const char* command,
 		token = strtok(NULL," ");
 	}
 	
-	(*argc)--;
+	//(*argc)--;  --> why make fail?
 	//remove '\n'
-	char* last = strtok((*argv)[*argc],"\n");
-	strncpy((*argv)[*argc],last,sizeof(last)-1);
+	char* last = strtok((*argv)[(*argc)-1],"\n");
+	strncpy((*argv)[(*argc)-1],last,sizeof(last)-1);
 	
 
 }
