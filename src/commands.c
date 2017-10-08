@@ -7,7 +7,7 @@
 #include "commands.h"
 
 
-// !0 == 1  == true
+
 int do_cd(int argc, char** argv) {
   if (!validate_cd_argv(argc, argv))
     return -1;
@@ -46,7 +46,7 @@ int do_cd(int argc, char** argv) {
   return 0;
 }
 
-//0 == fales --> !0 == true
+
 int do_pwd(int argc, char** argv) {
   if (!validate_pwd_argv(argc, argv))//in 1 -> pass
     return -1;
