@@ -14,26 +14,27 @@ void mysh_parse_command(const char* command,
 	char* str = (char*)malloc(sizeof(char)*1024);
 	strcpy(str, command);
 	
-
 	char* token = strtok(str," ");
 	
 	while(token != NULL){
-		
-		(*argv)[*argc]=(char*)malloc(sizeof(char)*1024);//3-2=1
-		strcpy((*argv)[*argc],token);
-
-
-		if( (strcmp((*argv)[*argc],"\t")) 
-			&& (strcmp((*argv)[*argc],"\n")) )
+	
+		if((strcmp(token,"\t")!=0)&&(strcmp(token,"\n"))!=0){
+			
+			(*argv)[*argc] = (char*)malloc(sizeof(char)*1024);
+			strcpy((*argv)[*argc],token);
+	
 			(*argc)++;		
-				
-		
+		}
 		token = strtok(NULL," ");
 	}
 	
+	if((*argc)==0){
+		(*argv)[*argc] = (char*)malloc(sizeof(char)*1024);
+		strcpy((*argv)[*argc],"");
+		(*argc)++;
+		}
 	
-	
-	if((*argc)>=1){
+	else if((*argc)>=1){
 		(*argv)[*argc]=NULL;
 	
 	//remove '\n'
@@ -41,6 +42,7 @@ void mysh_parse_command(const char* command,
 		strncpy((*argv)[(*argc)-1],last,sizeof(last)-1);
 		
 	}
-		free(str);
+	
+	free(str);
 	
 }
