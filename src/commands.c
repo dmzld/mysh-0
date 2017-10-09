@@ -38,7 +38,7 @@ int do_cd(int argc, char** argv) {
   	chdir("/home/aeis");
   }
   else if(argv[1]==NULL){
-    return 0;
+    return -1;
   }
   else{
   chdir(argv[1]);// if command cd ~ -> cd in [0], all of ~ in [1]
@@ -68,7 +68,7 @@ int validate_cd_argv(int argc, char** argv) {
 }
 
 int validate_pwd_argv(int argc, char** argv) {
-  if(argc>1){
+  if(argc>1 || strcmp(argv[0],"pwd")){
   	return 0;
   }
 
