@@ -68,9 +68,9 @@ int validate_cd_argv(int argc, char** argv) {
 }
 
 int validate_pwd_argv(int argc, char** argv) {
-  if(argc>1 || strcmp(argv[0],"pwd")){
+  if(argc>1 || strcmp(argv[0],"pwd"))
   	return 0;
-  }
+  
 
   return 1;
 }
